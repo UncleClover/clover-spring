@@ -16,27 +16,8 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
-        
-        <context:component-scan base-package="com.clover.dao" />
-        <context:component-scan base-package="com.clover.service" />
-        
-        <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" 
-        	  destroy-method="close"
-        	  p:driverClassName="com.mysql.jdbc.Driver"
-        	  p:url="jdbc:mysql://127.0.0.1:3306/chm_online?characterEncoding=utf8"
-        	  p:username="root"
-        	  p:password="zhangdq"  />
-        	  
-      	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSource" />
-      	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" p:dataSource-ref="dataSource" />
       	
-      	<aop:config proxy-target-class="true">
-      		<aop:pointcut id="serviceMethod" expression="execution(* com.clover.service..*(..))"/>
-      		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod" />
-      	</aop:config>
-      	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-      		<tx:attributes>
-      			<tx:method name="*" />
-      		</tx:attributes>
-      	</tx:advice>
+      	<bean id="message" class="com.clover.spring.vo.Message">
+      		<property name="message" value="fuck the world" />
+      	</bean>
 </beans>

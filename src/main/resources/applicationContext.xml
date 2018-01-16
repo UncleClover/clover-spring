@@ -16,8 +16,27 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
-      	
-      	<bean id="message" class="com.clover.spring.vo.Message">
-      		<property name="message" value="fuck the world" />
+      	<bean id="paramTemplate" abstract="true">
+      		<property name="message1" value="fuck the world" />
+      		<property name="message2" value="fuck the life" />
       	</bean>
+      	<bean id="message" class="com.clover.spring.vo.Message" scope="prototype" destroy-method="destroy" parent="paramTemplate" />
+      	
+      	<bean id="tips" class="com.clover.spring.vo.Tips" parent="paramTemplate">
+      		<property name="tip1" value="fuck the world" />
+      		<property name="tip2" value="fuck the life" />
+      	</bean>
+      	
+      	<bean class="com.clover.spring.vo.InitMessage"/>
+      	
+      	<bean id="user" class="com.clover.spring.bean.User">
+      		<constructor-arg ref="stringutils"/>
+      	</bean>
+      	<bean id="vip" class="com.clover.spring.bean.Vip">
+      		<property name="stringUitls">
+      			<bean id="stringutils" class="com.clover.spring.bean.StringUitls" />
+      		</property>
+      	</bean>
+      	
+      	<bean id="stringutils" class="com.clover.spring.bean.StringUitls" />
 </beans>

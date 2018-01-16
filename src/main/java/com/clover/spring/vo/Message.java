@@ -1,17 +1,30 @@
 package com.clover.spring.vo;
 
 public class Message {
-	private String message;
+	private String message1;
+	private String message2;
 	
-	public Message() {
-		System.out.println("===========================正在被初始化==================================");
+	public void getMessage1() {
+		System.out.println("信息：" + message1);
 	}
 
-	public void getMessage() {
-		System.out.println("信息：" + message);
+	public void setMessage1(String message1) {
+		this.message1 = message1;
+	}
+	
+	public String getMessage2() {
+		return message2;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessage2(String message2) {
+		this.message2 = message2;
+	}
+
+	public void init(){
+		System.out.println("正在初始化bean~");
+	}
+	
+	public void destroy(){
+		System.out.println("正在销毁bean~");
 	}
 }

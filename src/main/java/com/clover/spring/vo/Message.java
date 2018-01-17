@@ -12,8 +12,8 @@ public class Message {
 		this.message1 = message1;
 	}
 	
-	public String getMessage2() {
-		return message2;
+	public void getMessage2() {
+		System.out.println("信息：" + message2);
 	}
 
 	public void setMessage2(String message2) {

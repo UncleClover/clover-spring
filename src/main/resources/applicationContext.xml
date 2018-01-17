@@ -16,6 +16,9 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
+        
+        <context:component-scan base-package="com.clover.spring"/>
+        
       	<bean id="paramTemplate" abstract="true">
       		<property name="message1" value="fuck the world" />
       		<property name="message2" value="fuck the life" />
@@ -30,13 +33,12 @@
       	<bean class="com.clover.spring.vo.InitMessage"/>
       	
       	<bean id="user" class="com.clover.spring.bean.User">
-      		<constructor-arg ref="stringutils"/>
-      	</bean>
-      	<bean id="vip" class="com.clover.spring.bean.Vip">
-      		<property name="stringUitls">
-      			<bean id="stringutils" class="com.clover.spring.bean.StringUitls" />
-      		</property>
+      		<constructor-arg ref="stringUitls"/>
       	</bean>
       	
-      	<bean id="stringutils" class="com.clover.spring.bean.StringUitls" />
+      	<bean id="vip" class="com.clover.spring.bean.Vip" autowire="byName">
+      		<property name="code" value="2018" />
+      	</bean>
+      	
+      	<bean id="stringUitls" class="com.clover.spring.bean.StringUitls" />
 </beans>

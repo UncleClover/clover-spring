@@ -14,5 +14,11 @@ public class VipTest {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		Vip vip = (Vip) context.getBean("vip");
 		vip.isBlank("clover");
+		System.out.println(vip.getCode());
+		
+		System.out.println("=======================================");
+		vip.printMessage();
+		
+		vip.sayHi();
 	}
 }

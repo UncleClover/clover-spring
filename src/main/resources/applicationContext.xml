@@ -41,4 +41,8 @@
       	</bean>
       	
       	<bean id="stringUitls" class="com.clover.spring.bean.StringUitls" />
+      	
+      	<bean id="customEventHandler" class="com.clover.spring.event.CustomEventHandler"/>
+
+   		<bean id="customEventPublisher" class="com.clover.spring.event.CustomEventPublisher"/>
 </beans>

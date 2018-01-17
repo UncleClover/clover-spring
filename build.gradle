@@ -59,6 +59,12 @@ dependencies {
 	compile "com.fasterxml.jackson.core:jackson-core:2.8.9"
 	compile "com.fasterxml.jackson.core:jackson-databind:2.8.9"
 	compile "com.alibaba:fastjson:1.2.37"
+	compile "org.aspectj:aspectjrt:1.8.13"
+	compile "org.aspectj:aspectjweaver:1.8.13"
+	compile "aopalliance:aopalliance:1.0"
+	
+	
+	
 	
 	testCompile(
             "org.springframework:spring-test:4.1.7.RELEASE",

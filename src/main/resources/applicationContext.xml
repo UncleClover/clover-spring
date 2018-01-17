@@ -29,8 +29,10 @@
       		<property name="tip1" value="fuck the world" />
       		<property name="tip2" value="fuck the life" />
       	</bean>
-      	
+
+		<!-- 
       	<bean class="com.clover.spring.vo.InitMessage"/>
+      	-->
       	
       	<bean id="user" class="com.clover.spring.bean.User">
       		<constructor-arg ref="stringUitls"/>
@@ -45,4 +47,17 @@
       	<bean id="customEventHandler" class="com.clover.spring.event.CustomEventHandler"/>
 
    		<bean id="customEventPublisher" class="com.clover.spring.event.CustomEventPublisher"/>
+   		
+   		<!-- AOP测试 -->
+   		<bean id="userService" class="com.clover.spring.aop.inter.impl.UserServiceSVImpl" />
+   		<bean id="adminService" class="com.clover.spring.aop.inter.impl.AdminServiceSVImpl" />
+   		<bean id="timeHandler" class="com.clover.spring.aop.TimeHandler" />
+   		
+   		<aop:config>
+   			<aop:aspect id="time" ref="timeHandler">
+   				<aop:pointcut id="addAllMethod" expression="execution(* com.clover.spring.aop.inter.IOperServiceSV.*(..))" />
+   				<aop:before method="printTime" pointcut-ref="addAllMethod" />
+   				<aop:after method="printTime" pointcut-ref="addAllMethod" />
+   			</aop:aspect>
+   		</aop:config>
 </beans>

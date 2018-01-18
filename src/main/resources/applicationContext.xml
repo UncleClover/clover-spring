@@ -18,6 +18,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
         
         <context:component-scan base-package="com.clover.spring"/>
+        <aop:aspectj-autoproxy />
         
       	<bean id="paramTemplate" abstract="true">
       		<property name="message1" value="fuck the world" />
@@ -52,6 +53,7 @@
    		<bean id="userService" class="com.clover.spring.aop.inter.impl.UserServiceSVImpl" />
    		<bean id="adminService" class="com.clover.spring.aop.inter.impl.AdminServiceSVImpl" />
    		<bean id="timeHandler" class="com.clover.spring.aop.TimeHandler" />
+   		<bean id="loggerHandler" class="com.clover.spring.aop.LoggerHandler" />
    		
    		<aop:config>
    			<aop:aspect id="time" ref="timeHandler">

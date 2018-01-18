@@ -9,6 +9,7 @@ import com.clover.spring.aop.inter.IOperServiceSV;
 
 public class IOperServiceSVTest {
 
+	@SuppressWarnings("resource")
 	@Test
 	public void testOper() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
